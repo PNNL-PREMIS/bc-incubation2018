@@ -1,0 +1,523 @@
+Fri Apr 05 16:47:10 2019  Opening outputs//2-data/2-data.R.log.txt 
+Fri Apr 05 16:47:11 2019  Welcome to 2-data.R 
+Fri Apr 05 16:47:12 2019  Data directory is data//picarro 
+Fri Apr 05 16:47:13 2019  Found 0 files 
+Fri Apr 05 16:47:13 2019  Reading data//picarro/CFADS2283-20180716-185732Z-DataLog_User.dat 
+Fri Apr 05 16:47:13 2019  Reading data//picarro/CFADS2283-20180716-195740Z-DataLog_User.dat 
+Fri Apr 05 16:47:13 2019  Reading data//picarro/CFADS2283-20180716-210823Z-DataLog_User.dat 
+Fri Apr 05 16:47:13 2019  Reading data//picarro/CFADS2283-20180716-220830Z-DataLog_User.dat 
+Fri Apr 05 16:47:13 2019  Reading data//picarro/CFADS2283-20180717-155758Z-DataLog_User.dat 
+Fri Apr 05 16:47:13 2019  Reading data//picarro/CFADS2283-20180717-165813Z-DataLog_User.dat 
+Fri Apr 05 16:47:13 2019  Reading data//picarro/CFADS2283-20180717-175827Z-DataLog_User.dat 
+Fri Apr 05 16:47:13 2019  Reading data//picarro/CFADS2283-20180717-185852Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180717-195917Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180717-205940Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180717-215947Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180717-230003Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180718-000020Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180718-010051Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180718-020115Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180718-030135Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180719-144025Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180719-154041Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180719-164055Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180719-174119Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180719-184126Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180719-194140Z-DataLog_User.dat 
+Fri Apr 05 16:47:14 2019  Reading data//picarro/CFADS2283-20180719-204207Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180719-214218Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180719-224226Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180719-234241Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180720-004248Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180720-014313Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180721-145110Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180721-155131Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180721-165148Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180721-175213Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180721-185225Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180721-195240Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180721-205255Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180721-215301Z-DataLog_User.dat 
+Fri Apr 05 16:47:15 2019  Reading data//picarro/CFADS2283-20180721-225308Z-DataLog_User.dat 
+Fri Apr 05 16:47:16 2019  Reading data//picarro/CFADS2283-20180721-235324Z-DataLog_User.dat 
+Fri Apr 05 16:47:16 2019  Reading data//picarro/CFADS2283-20180722-005350Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180724-145706Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180724-155731Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180724-165756Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180724-175820Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180724-185848Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180724-195910Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180724-205935Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180724-215946Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180724-230015Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180725-000040Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180725-160627Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180725-170638Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180725-180709Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180725-190735Z-DataLog_User.dat 
+Fri Apr 05 16:47:17 2019  Reading data//picarro/CFADS2283-20180725-200753Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180726-143013Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180726-153029Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180726-163038Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180726-173048Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180726-183105Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180726-193124Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180726-203142Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180726-213205Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180726-223226Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180726-233252Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180727-003319Z-DataLog_User.dat 
+Fri Apr 05 16:47:18 2019  Reading data//picarro/CFADS2283-20180727-153520Z-DataLog_User.dat 
+Fri Apr 05 16:47:19 2019  Reading data//picarro/CFADS2283-20180727-163527Z-DataLog_User.dat 
+Fri Apr 05 16:47:19 2019  Reading data//picarro/CFADS2283-20180727-173535Z-DataLog_User.dat 
+Fri Apr 05 16:47:19 2019  Reading data//picarro/CFADS2283-20180727-183543Z-DataLog_User.dat 
+Fri Apr 05 16:47:19 2019  Reading data//picarro/CFADS2283-20180727-193606Z-DataLog_User.dat 
+Fri Apr 05 16:47:19 2019  Reading data//picarro/CFADS2283-20180727-203615Z-DataLog_User.dat 
+Fri Apr 05 16:47:19 2019  Reading data//picarro/CFADS2283-20180731-143529Z-DataLog_User.dat 
+Fri Apr 05 16:47:19 2019  Reading data//picarro/CFADS2283-20180731-153534Z-DataLog_User.dat 
+Fri Apr 05 16:47:19 2019  Reading data//picarro/CFADS2283-20180731-163552Z-DataLog_User.dat 
+Fri Apr 05 16:47:19 2019  Reading data//picarro/CFADS2283-20180731-173558Z-DataLog_User.dat 
+Fri Apr 05 16:47:20 2019  Reading data//picarro/CFADS2283-20180731-183606Z-DataLog_User.dat 
+Fri Apr 05 16:47:20 2019  Reading data//picarro/CFADS2283-20180731-193618Z-DataLog_User.dat 
+Fri Apr 05 16:47:20 2019  Reading data//picarro/CFADS2283-20180731-203624Z-DataLog_User.dat 
+Fri Apr 05 16:47:20 2019  Reading data//picarro/CFADS2283-20180731-213649Z-DataLog_User.dat 
+Fri Apr 05 16:47:20 2019  Reading data//picarro/CFADS2283-20180731-223657Z-DataLog_User.dat 
+Fri Apr 05 16:47:20 2019  Reading data//picarro/CFADS2283-20180731-233705Z-DataLog_User.dat 
+Fri Apr 05 16:47:29 2019  Writing output file... 
+Fri Apr 05 16:47:30 2019  Saving outputs//rawdata.csv 
+Fri Apr 05 16:47:33 2019  gzipping outputs//rawdata.csv 
+Fri Apr 05 16:47:35 2019  All done with 2-data.R 
+Fri Apr 05 16:47:36 2019  Closing outputs//2-data/2-data.R.log.txt flags = 0 
+-------
+R version 3.5.1 (2018-07-02)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 7 x64 (build 7601) Service Pack 1
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252   
+[3] LC_MONETARY=English_United States.1252 LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] bindrcpp_0.2.2    R.utils_2.7.0     R.oo_1.22.0       R.methodsS3_1.7.1
+ [5] tidyr_0.8.2       luzlogr_0.2.0     stringr_1.3.1     lubridate_1.7.4  
+ [9] readr_1.3.0      Fri Apr 05 16:47:49 2019  Opening outputs//3-summarize/3-summarize.R.log.txt 
+Fri Apr 05 16:47:50 2019  Welcome to 3-summarize.R 
+Fri Apr 05 16:47:51 2019  Reading in raw data... 
+Fri Apr 05 16:47:53 2019  rawdata rows = 52709 cols = 7 
+   filename         ALARM_STATUS        MPVPosition       CH4_dry      
+ Length:52709       Length:52709       Min.   : 0.00   Min.   :-4.725  
+ Class :character   Class :character   1st Qu.: 6.00   1st Qu.: 1.960  
+ Mode  :character   Mode  :character   Median :15.00   Median : 2.007  
+                                       Mean   :11.19   Mean   : 1.983  
+                                       3rd Qu.:16.00   3rd Qu.: 2.067  
+                                       Max.   :16.00   Max.   :14.490  
+    CO2_dry        h2o_reported      DATETIME                  
+ Min.   : 398.9   Min.   :1.173   Min.   :2018-07-16 18:57:26  
+ 1st Qu.: 514.6   1st Qu.:1.953   1st Qu.:2018-07-19 23:28:07  
+ Median : 566.0   Median :2.025   Median :2018-07-26 17:49:01  
+ Mean   : 667.4   Mean   :2.068   Mean   :2018-07-25 05:25:09  
+ 3rd Qu.: 685.3   3rd Qu.:2.349   3rd Qu.:2018-07-27 20:41:53  
+ Max.   :8034.1   Max.   :2.615   Max.   :2018-08-01 00:37:03  
+Fri Apr 05 16:47:58 2019  First timestamp: 
+[1] "2018-07-16 18:57:26 UTC"
+Fri Apr 05 16:48:02 2019  Last timestamp: 
+[1] "2018-08-01 00:37:03 UTC"
+Fri Apr 05 16:48:04 2019  Assigning sample numbers and computing elapsed time... 
+Fri Apr 05 16:48:06 2019  Removing ambient samples... 
+Fri Apr 05 16:48:09 2019  rawdata_samples rows = 26629 cols = 9 
+Fri Apr 05 16:48:10 2019  Visualizing... 
+Fri Apr 05 16:48:17 2019  Saving outputs//3-summarize/co2_by_valve.png 
+Fri Apr 05 16:48:28 2019  Saving outputs//3-summarize/ch4_by_valve.png 
+Sat Apr 06 12:17:17 2019  Opening outputs//2-data/2-data.R.log.txt 
+Sat Apr 06 12:17:17 2019  Welcome to 2-data.R 
+Sat Apr 06 12:17:17 2019  Data directory is data//picarro 
+Sat Apr 06 12:17:17 2019  Found 0 files 
+Sat Apr 06 12:17:17 2019  Reading data//picarro/CFADS2283-20180801-003712Z-DataLog_User.dat 
+Sat Apr 06 12:17:17 2019  Reading data//picarro/CFADS2283-20180801-152218Z-DataLog_User.dat 
+Sat Apr 06 12:17:17 2019  Reading data//picarro/CFADS2283-20180801-162227Z-DataLog_User.dat 
+Sat Apr 06 12:17:17 2019  Reading data//picarro/CFADS2283-20180801-172232Z-DataLog_User.dat 
+Sat Apr 06 12:17:17 2019  Reading data//picarro/CFADS2283-20180801-182246Z-DataLog_User.dat 
+Sat Apr 06 12:17:17 2019  Reading data//picarro/CFADS2283-20180801-192256Z-DataLog_User.dat 
+Sat Apr 06 12:17:18 2019  Reading data//picarro/CFADS2283-20180801-202304Z-DataLog_User.dat 
+Sat Apr 06 12:17:18 2019  Reading data//picarro/CFADS2283-20180801-212312Z-DataLog_User.dat 
+Sat Apr 06 12:17:18 2019  Reading data//picarro/CFADS2283-20180801-222320Z-DataLog_User.dat 
+Sat Apr 06 12:17:18 2019  Reading data//picarro/CFADS2283-20180801-232343Z-DataLog_User.dat 
+Sat Apr 06 12:17:18 2019  Reading data//picarro/CFADS2283-20180802-153731Z-DataLog_User.dat 
+Sat Apr 06 12:17:18 2019  Reading data//picarro/CFADS2283-20180802-163739Z-DataLog_User.dat 
+Sat Apr 06 12:17:18 2019  Reading data//picarro/CFADS2283-20180802-173748Z-DataLog_User.dat 
+Sat Apr 06 12:17:18 2019  Reading data//picarro/CFADS2283-20180802-183754Z-DataLog_User.dat 
+Sat Apr 06 12:17:18 2019  Reading data//picarro/CFADS2283-20180802-193802Z-DataLog_User.dat 
+Sat Apr 06 12:17:18 2019  Reading data//picarro/CFADS2283-20180802-203810Z-DataLog_User.dat 
+Sat Apr 06 12:17:19 2019  Reading data//picarro/CFADS2283-20180802-213816Z-DataLog_User.dat 
+Sat Apr 06 12:17:19 2019  Reading data//picarro/CFADS2283-20180802-223824Z-DataLog_User.dat 
+Sat Apr 06 12:17:19 2019  Reading data//picarro/CFADS2283-20180803-155515Z-DataLog_User.dat 
+Sat Apr 06 12:17:19 2019  Reading data//picarro/CFADS2283-20180803-165523Z-DataLog_User.dat 
+Sat Apr 06 12:17:19 2019  Reading data//picarro/CFADS2283-20180803-175531Z-DataLog_User.dat 
+Sat Apr 06 12:17:19 2019  Reading data//picarro/CFADS2283-20180803-185539Z-DataLog_User.dat 
+Sat Apr 06 12:17:19 2019  Reading data//picarro/CFADS2283-20180807-150919Z-DataLog_User.dat 
+Sat Apr 06 12:17:19 2019  Reading data//picarro/CFADS2283-20180807-160926Z-DataLog_User.dat 
+Sat Apr 06 12:17:19 2019  Reading data//picarro/CFADS2283-20180807-170934Z-DataLog_User.dat 
+Sat Apr 06 12:17:19 2019  Reading data//picarro/CFADS2283-20180807-180942Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180807-190949Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180807-200954Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180807-211011Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180807-221018Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180807-231025Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180810-151453Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180810-161501Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180810-171507Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180810-181515Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180810-191524Z-DataLog_User.dat 
+Sat Apr 06 12:17:20 2019  Reading data//picarro/CFADS2283-20180810-201530Z-DataLog_User.dat 
+Sat Apr 06 12:17:21 2019  Reading data//picarro/CFADS2283-20180810-211543Z-DataLog_User.dat 
+Sat Apr 06 12:17:21 2019  Reading data//picarro/CFADS2283-20180810-221554Z-DataLog_User.dat 
+Sat Apr 06 12:17:21 2019  Reading data//picarro/CFADS2283-20180813-140520Z-DataLog_User.dat 
+Sat Apr 06 12:17:21 2019  Reading data//picarro/CFADS2283-20180813-150528Z-DataLog_User.dat 
+Sat Apr 06 12:17:21 2019  Reading data//picarro/CFADS2283-20180813-160536Z-DataLog_User.dat 
+Sat Apr 06 12:17:21 2019  Reading data//picarro/CFADS2283-20180813-170544Z-DataLog_User.dat 
+Sat Apr 06 12:17:21 2019  Reading data//picarro/CFADS2283-20180813-180552Z-DataLog_User.dat 
+Sat Apr 06 12:17:21 2019  Reading data//picarro/CFADS2283-20180814-001541Z-DataLog_User.dat 
+Sat Apr 06 12:17:21 2019  Reading data//picarro/CFADS2283-20180814-011550Z-DataLog_User.dat 
+Sat Apr 06 12:17:21 2019  Reading data//picarro/CFADS2283-20180814-021558Z-DataLog_User.dat 
+Sat Apr 06 12:17:22 2019  Reading data//picarro/CFADS2283-20180814-031607Z-DataLog_User.dat 
+Sat Apr 06 12:17:22 2019  Reading data//picarro/CFADS2283-20180814-041615Z-DataLog_User.dat 
+Sat Apr 06 12:17:22 2019  Reading data//picarro/CFADS2283-20180814-051624Z-DataLog_User.dat 
+Sat Apr 06 12:17:22 2019  Reading data//picarro/CFADS2283-20180814-061630Z-DataLog_User.dat 
+Sat Apr 06 12:17:22 2019  Reading data//picarro/CFADS2283-20180814-071639Z-DataLog_User.dat 
+Sat Apr 06 12:17:22 2019  Reading data//picarro/CFADS2283-20180814-081647Z-DataLog_User.dat 
+Sat Apr 06 12:17:22 2019  Reading data//picarro/CFADS2283-20180814-091653Z-DataLog_User.dat 
+Sat Apr 06 12:17:22 2019  Reading data//picarro/CFADS2283-20180814-101701Z-DataLog_User.dat 
+Sat Apr 06 12:17:22 2019  Reading data//picarro/CFADS2283-20180814-111708Z-DataLog_User.dat 
+Sat Apr 06 12:17:22 2019  Reading data//picarro/CFADS2283-20180814-121718Z-DataLog_User.dat 
+Sat Apr 06 12:17:23 2019  Reading data//picarro/CFADS2283-20180814-131726Z-DataLog_User.dat 
+Sat Apr 06 12:17:23 2019  Reading data//picarro/CFADS2283-20180814-141733Z-DataLog_User.dat 
+Sat Apr 06 12:17:23 2019  Reading data//picarro/CFADS2283-20180814-151740Z-DataLog_User.dat 
+Sat Apr 06 12:17:23 2019  Reading data//picarro/CFADS2283-20180814-161748Z-DataLog_User.dat 
+Sat Apr 06 12:17:23 2019  Reading data//picarro/CFADS2283-20180814-171756Z-DataLog_User.dat 
+Sat Apr 06 12:17:23 2019  Reading data//picarro/CFADS2283-20180814-181805Z-DataLog_User.dat 
+Sat Apr 06 12:17:23 2019  Reading data//picarro/CFADS2283-20180814-191814Z-DataLog_User.dat 
+Sat Apr 06 12:17:23 2019  Reading data//picarro/CFADS2283-20180814-201823Z-DataLog_User.dat 
+Sat Apr 06 12:17:23 2019  Reading data//picarro/CFADS2283-20180814-211829Z-DataLog_User.dat 
+Sat Apr 06 12:17:23 2019  Reading data//picarro/CFADS2283-20180814-221836Z-DataLog_User.dat 
+Sat Apr 06 12:17:24 2019  Reading data//picarro/CFADS2283-20180814-231843Z-DataLog_User.dat 
+Sat Apr 06 12:17:24 2019  Reading data//picarro/CFADS2283-20180815-001851Z-DataLog_User.dat 
+Sat Apr 06 12:17:24 2019  Reading data//picarro/CFADS2283-20180815-011857Z-DataLog_User.dat 
+Sat Apr 06 12:17:24 2019  Reading data//picarro/CFADS2283-20180815-021904Z-DataLog_User.dat 
+Sat Apr 06 12:17:24 2019  Reading data//picarro/CFADS2283-20180815-031913Z-DataLog_User.dat 
+Sat Apr 06 12:17:24 2019  Reading data//picarro/CFADS2283-20180815-041923Z-DataLog_User.dat 
+Sat Apr 06 12:17:24 2019  Reading data//picarro/CFADS2283-20180815-051932Z-DataLog_User.dat 
+Sat Apr 06 12:17:24 2019  Reading data//picarro/CFADS2283-20180815-061942Z-DataLog_User.dat 
+Sat Apr 06 12:17:24 2019  Reading data//picarro/CFADS2283-20180815-071949Z-DataLog_User.dat 
+Sat Apr 06 12:17:24 2019  Reading data//picarro/CFADS2283-20180815-081956Z-DataLog_User.dat 
+Sat Apr 06 12:17:25 2019  Reading data//picarro/CFADS2283-20180815-092006Z-DataLog_User.dat 
+Sat Apr 06 12:17:25 2019  Reading data//picarro/CFADS2283-20180815-102014Z-DataLog_User.dat 
+Sat Apr 06 12:17:25 2019  Reading data//picarro/CFADS2283-20180815-112023Z-DataLog_User.dat 
+Sat Apr 06 12:17:25 2019  Reading data//picarro/CFADS2283-20180815-122033Z-DataLog_User.dat 
+Sat Apr 06 12:17:25 2019  Reading data//picarro/CFADS2283-20180815-132043Z-DataLog_User.dat 
+Sat Apr 06 12:17:25 2019  Reading data//picarro/CFADS2283-20180815-142052Z-DataLog_User.dat 
+Sat Apr 06 12:17:25 2019  Reading data//picarro/CFADS2283-20180815-152100Z-DataLog_User.dat 
+Sat Apr 06 12:17:25 2019  Reading data//picarro/CFADS2283-20180815-162105Z-DataLog_User.dat 
+Sat Apr 06 12:17:25 2019  Reading data//picarro/CFADS2283-20180815-172113Z-DataLog_User.dat 
+Sat Apr 06 12:17:25 2019  Reading data//picarro/CFADS2283-20180815-182123Z-DataLog_User.dat 
+Sat Apr 06 12:17:26 2019  Reading data//picarro/CFADS2283-20180815-192131Z-DataLog_User.dat 
+Sat Apr 06 12:17:26 2019  Reading data//picarro/CFADS2283-20180815-202137Z-DataLog_User.dat 
+Sat Apr 06 12:17:26 2019  Reading data//picarro/CFADS2283-20180815-212145Z-DataLog_User.dat 
+Sat Apr 06 12:17:26 2019  Reading data//picarro/CFADS2283-20180815-222155Z-DataLog_User.dat 
+Sat Apr 06 12:17:26 2019  Reading data//picarro/CFADS2283-20180815-232204Z-DataLog_User.dat 
+Sat Apr 06 12:17:26 2019  Reading data//picarro/CFADS2283-20180816-002209Z-DataLog_User.dat 
+Sat Apr 06 12:17:26 2019  Reading data//picarro/CFADS2283-20180816-012216Z-DataLog_User.dat 
+Sat Apr 06 12:17:26 2019  Reading data//picarro/CFADS2283-20180816-022223Z-DataLog_User.dat 
+Sat Apr 06 12:17:26 2019  Reading data//picarro/CFADS2283-20180816-032229Z-DataLog_User.dat 
+Sat Apr 06 12:17:26 2019  Reading data//picarro/CFADS2283-20180816-042237Z-DataLog_User.dat 
+Sat Apr 06 12:17:27 2019  Reading data//picarro/CFADS2283-20180816-052247Z-DataLog_User.dat 
+Sat Apr 06 12:17:27 2019  Reading data//picarro/CFADS2283-20180816-062255Z-DataLog_User.dat 
+Sat Apr 06 12:17:27 2019  Reading data//picarro/CFADS2283-20180816-072303Z-DataLog_User.dat 
+Sat Apr 06 12:17:27 2019  Reading data//picarro/CFADS2283-20180816-082312Z-DataLog_User.dat 
+Sat Apr 06 12:17:27 2019  Reading data//picarro/CFADS2283-20180816-092319Z-DataLog_User.dat 
+Sat Apr 06 12:17:27 2019  Reading data//picarro/CFADS2283-20180816-102327Z-DataLog_User.dat 
+Sat Apr 06 12:17:27 2019  Reading data//picarro/CFADS2283-20180816-112333Z-DataLog_User.dat 
+Sat Apr 06 12:17:27 2019  Reading data//picarro/CFADS2283-20180816-122339Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180816-132348Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180816-142354Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180816-152403Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180816-162411Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180816-172420Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180816-182428Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180816-192434Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180816-202442Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180816-212447Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180816-222454Z-DataLog_User.dat 
+Sat Apr 06 12:17:28 2019  Reading data//picarro/CFADS2283-20180817-002512Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-012520Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-022530Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-032541Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-042549Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-052556Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-062603Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-072613Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-082620Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-092625Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-102633Z-DataLog_User.dat 
+Sat Apr 06 12:17:29 2019  Reading data//picarro/CFADS2283-20180817-112639Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180817-122648Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180817-132657Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180817-142706Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180817-152723Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180817-162732Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180817-172741Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180817-182746Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180820-003509Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180820-013519Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180820-023526Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180820-033532Z-DataLog_User.dat 
+Sat Apr 06 12:17:30 2019  Reading data//picarro/CFADS2283-20180820-043540Z-DataLog_User.dat 
+Sat Apr 06 12:17:31 2019  Reading data//picarro/CFADS2283-20180820-053547Z-DataLog_User.dat 
+Sat Apr 06 12:17:31 2019  Reading data//picarro/CFADS2283-20180820-063557Z-DataLog_User.dat 
+Sat Apr 06 12:17:31 2019  Reading data//picarro/CFADS2283-20180820-073605Z-DataLog_User.dat 
+Sat Apr 06 12:17:31 2019  Reading data//picarro/CFADS2283-20180820-083611Z-DataLog_User.dat 
+Sat Apr 06 12:17:31 2019  Reading data//picarro/CFADS2283-20180820-093620Z-DataLog_User.dat 
+Sat Apr 06 12:17:31 2019  Reading data//picarro/CFADS2283-20180820-103628Z-DataLog_User.dat 
+Sat Apr 06 12:17:31 2019  Reading data//picarro/CFADS2283-20180820-113637Z-DataLog_User.dat 
+Sat Apr 06 12:17:31 2019  Reading data//picarro/CFADS2283-20180820-123644Z-DataLog_User.dat 
+Sat Apr 06 12:17:31 2019  Reading data//picarro/CFADS2283-20180820-133654Z-DataLog_User.dat 
+Sat Apr 06 12:17:31 2019  Reading data//picarro/CFADS2283-20180820-143702Z-DataLog_User.dat 
+Sat Apr 06 12:17:32 2019  Reading data//picarro/CFADS2283-20180820-153709Z-DataLog_User.dat 
+Sat Apr 06 12:17:32 2019  Reading data//picarro/CFADS2283-20180820-163715Z-DataLog_User.dat 
+Sat Apr 06 12:17:32 2019  Reading data//picarro/CFADS2283-20180820-173730Z-DataLog_User.dat 
+Sat Apr 06 12:17:32 2019  Reading data//picarro/CFADS2283-20180820-183737Z-DataLog_User.dat 
+Sat Apr 06 12:17:32 2019  Reading data//picarro/CFADS2283-20180820-193747Z-DataLog_User.dat 
+Sat Apr 06 12:17:32 2019  Reading data//picarro/CFADS2283-20180820-203755Z-DataLog_User.dat 
+Sat Apr 06 12:17:32 2019  Reading data//picarro/CFADS2283-20180820-213822Z-DataLog_User.dat 
+Sat Apr 06 12:17:32 2019  Reading data//picarro/CFADS2283-20180821-003845Z-DataLog_User.dat 
+Sat Apr 06 12:17:32 2019  Reading data//picarro/CFADS2283-20180821-013855Z-DataLog_User.dat 
+Sat Apr 06 12:17:32 2019  Reading data//picarro/CFADS2283-20180821-023901Z-DataLog_User.dat 
+Sat Apr 06 12:17:33 2019  Reading data//picarro/CFADS2283-20180821-033909Z-DataLog_User.dat 
+Sat Apr 06 12:17:33 2019  Reading data//picarro/CFADS2283-20180821-043916Z-DataLog_User.dat 
+Sat Apr 06 12:17:33 2019  Reading data//picarro/CFADS2283-20180821-053921Z-DataLog_User.dat 
+Sat Apr 06 12:17:33 2019  Reading data//picarro/CFADS2283-20180821-063931Z-DataLog_User.dat 
+Sat Apr 06 12:17:33 2019  Reading data//picarro/CFADS2283-20180821-073941Z-DataLog_User.dat 
+Sat Apr 06 12:17:33 2019  Reading data//picarro/CFADS2283-20180821-083947Z-DataLog_User.dat 
+Sat Apr 06 12:17:33 2019  Reading data//picarro/CFADS2283-20180821-093955Z-DataLog_User.dat 
+Sat Apr 06 12:17:33 2019  Reading data//picarro/CFADS2283-20180821-104001Z-DataLog_User.dat 
+Sat Apr 06 12:17:33 2019  Reading data//picarro/CFADS2283-20180821-114009Z-DataLog_User.dat 
+Sat Apr 06 12:17:33 2019  Reading data//picarro/CFADS2283-20180821-124017Z-DataLog_User.dat 
+Sat Apr 06 12:17:34 2019  Reading data//picarro/CFADS2283-20180821-134024Z-DataLog_User.dat 
+Sat Apr 06 12:17:34 2019  Reading data//picarro/CFADS2283-20180821-144029Z-DataLog_User.dat 
+Sat Apr 06 12:17:34 2019  Reading data//picarro/CFADS2283-20180821-154038Z-DataLog_User.dat 
+Sat Apr 06 12:17:34 2019  Reading data//picarro/CFADS2283-20180821-164046Z-DataLog_User.dat 
+Sat Apr 06 12:17:34 2019  Reading data//picarro/CFADS2283-20180821-174057Z-DataLog_User.dat 
+Sat Apr 06 12:17:34 2019  Reading data//picarro/CFADS2283-20180821-184109Z-DataLog_User.dat 
+Sat Apr 06 12:17:34 2019  Reading data//picarro/CFADS2283-20180821-194129Z-DataLog_User.dat 
+Sat Apr 06 12:17:34 2019  Reading data//picarro/CFADS2283-20180821-204156Z-DataLog_User.dat 
+Sat Apr 06 12:17:34 2019  Reading data//picarro/CFADS2283-20180821-214211Z-DataLog_User.dat 
+Sat Apr 06 12:17:34 2019  Reading data//picarro/CFADS2283-20180821-224236Z-DataLog_User.dat 
+Sat Apr 06 12:17:35 2019  Reading data//picarro/CFADS2283-20180822-004254Z-DataLog_User.dat 
+Sat Apr 06 12:17:35 2019  Reading data//picarro/CFADS2283-20180822-014302Z-DataLog_User.dat 
+Sat Apr 06 12:17:35 2019  Reading data//picarro/CFADS2283-20180822-024312Z-DataLog_User.dat 
+Sat Apr 06 12:17:35 2019  Reading data//picarro/CFADS2283-20180822-034321Z-DataLog_User.dat 
+Sat Apr 06 12:17:35 2019  Reading data//picarro/CFADS2283-20180822-044329Z-DataLog_User.dat 
+Sat Apr 06 12:17:35 2019  Reading data//picarro/CFADS2283-20180822-054337Z-DataLog_User.dat 
+Sat Apr 06 12:17:35 2019  Reading data//picarro/CFADS2283-20180822-064346Z-DataLog_User.dat 
+Sat Apr 06 12:17:35 2019  Reading data//picarro/CFADS2283-20180822-074356Z-DataLog_User.dat 
+Sat Apr 06 12:17:35 2019  Reading data//picarro/CFADS2283-20180822-084405Z-DataLog_User.dat 
+Sat Apr 06 12:17:35 2019  Reading data//picarro/CFADS2283-20180822-094415Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180822-104424Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180822-114435Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180822-124443Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180822-134453Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180822-144458Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180822-154507Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180822-164516Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180822-174524Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180822-184545Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180822-194557Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180823-004708Z-DataLog_User.dat 
+Sat Apr 06 12:17:36 2019  Reading data//picarro/CFADS2283-20180823-014729Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-024738Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-034751Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-044804Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-054814Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-064838Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-074857Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-084909Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-094931Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-104940Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-114958Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-125023Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-135050Z-DataLog_User.dat 
+Sat Apr 06 12:17:37 2019  Reading data//picarro/CFADS2283-20180823-145103Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180823-155110Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180823-165117Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180823-175123Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180823-185139Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180823-195206Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180823-205227Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180823-215255Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180823-225302Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180824-005319Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180824-015326Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180824-025336Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180824-035343Z-DataLog_User.dat 
+Sat Apr 06 12:17:38 2019  Reading data//picarro/CFADS2283-20180824-045352Z-DataLog_User.dat 
+Sat Apr 06 12:17:39 2019  Reading data//picarro/CFADS2283-20180824-055357Z-DataLog_User.dat 
+Sat Apr 06 12:17:39 2019  Reading data//picarro/CFADS2283-20180824-065404Z-DataLog_User.dat 
+Sat Apr 06 12:17:39 2019  Reading data//picarro/CFADS2283-20180824-075413Z-DataLog_User.dat 
+Sat Apr 06 12:17:39 2019  Reading data//picarro/CFADS2283-20180824-085422Z-DataLog_User.dat 
+Sat Apr 06 12:17:39 2019  Reading data//picarro/CFADS2283-20180824-095431Z-DataLog_User.dat 
+Sat Apr 06 12:17:39 2019  Reading data//picarro/CFADS2283-20180824-105441Z-DataLog_User.dat 
+Sat Apr 06 12:17:39 2019  Reading data//picarro/CFADS2283-20180824-115449Z-DataLog_User.dat 
+Sat Apr 06 12:17:39 2019  Reading data//picarro/CFADS2283-20180824-125458Z-DataLog_User.dat 
+Sat Apr 06 12:17:39 2019  Reading data//picarro/CFADS2283-20180824-135507Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180824-145534Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180824-155602Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180824-165610Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180824-175616Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180824-185642Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180824-195651Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180824-205659Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180824-215722Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180824-225751Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180824-235757Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180828-144634Z-DataLog_User.dat 
+Sat Apr 06 12:17:40 2019  Reading data//picarro/CFADS2283-20180828-154658Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180828-164721Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180828-174740Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180828-184749Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180828-194756Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180828-204809Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180828-214835Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180831-153922Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180831-163940Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180831-174002Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180831-184010Z-DataLog_User.dat 
+Sat Apr 06 12:17:41 2019  Reading data//picarro/CFADS2283-20180831-194038Z-DataLog_User.dat 
+Sat Apr 06 12:17:42 2019  Reading data//picarro/CFADS2283-20180831-204107Z-DataLog_User.dat 
+Sat Apr 06 12:17:42 2019  Reading data//picarro/CFADS2283-20180831-214120Z-DataLog_User.dat 
+Sat Apr 06 12:17:42 2019  Writing output file... 
+Sat Apr 06 12:17:42 2019  Saving outputs//rawdata.csv 
+Sat Apr 06 12:18:00 2019  gzipping outputs//rawdata.csv 
+Sat Apr 06 12:18:05 2019  All done with 2-data.R 
+Sat Apr 06 12:18:05 2019  Closing outputs//2-data/2-data.R.log.txt flags = 0 
+Sat Apr 06 12:18:17 2019  Opening outputs//3-summarize/3-summarize.R.log.txt 
+Sat Apr 06 12:18:17 2019  Welcome to 3-summarize.R 
+Sat Apr 06 12:18:17 2019  Reading in raw data... 
+Sat Apr 06 12:18:21 2019  rawdata rows = 342111 cols = 7 
+   filename         ALARM_STATUS        MPVPosition       CH4_dry      
+ Length:342111      Length:342111      Min.   : 0.00   Min.   :0.6968  
+ Class :character   Class :character   1st Qu.: 9.00   1st Qu.:1.9652  
+ Mode  :character   Mode  :character   Median :16.00   Median :2.0140  
+                                       Mean   :12.51   Mean   :2.0480  
+                                       3rd Qu.:16.00   3rd Qu.:2.1239  
+                                       Max.   :16.00   Max.   :2.9046  
+    CO2_dry        h2o_reported      DATETIME                  
+ Min.   : 402.8   Min.   :1.756   Min.   :2018-08-01 00:37:07  
+ 1st Qu.: 436.7   1st Qu.:1.950   1st Qu.:2018-08-14 15:42:28  
+ Median : 469.1   Median :1.985   Median :2018-08-16 19:52:40  
+ Mean   : 512.3   Mean   :2.048   Mean   :2018-08-16 22:48:00  
+ 3rd Qu.: 535.3   3rd Qu.:2.034   3rd Qu.:2018-08-21 15:00:50  
+ Max.   :3691.8   Max.   :2.711   Max.   :2018-08-31 22:04:55  
+Sat Apr 06 12:18:22 2019  First timestamp: 
+[1] "2018-08-01 00:37:07 UTC"
+Sat Apr 06 12:18:22 2019  Last timestamp: 
+[1] "2018-08-31 22:04:55 UTC"
+Sat Apr 06 12:18:22 2019  Assigning sample numbers and computing elapsed time... 
+Sat Apr 06 12:18:22 2019  Removing ambient samples... 
+Sat Apr 06 12:18:23 2019  rawdata_samples rows = 113788 cols = 9 
+Sat Apr 06 12:18:23 2019  Visualizing... 
+Sat Apr 06 12:18:30 2019  Saving outputs//3-summarize/co2_by_valve.png 
+Sat Apr 06 12:18:40 2019  Saving outputs//3-summarize/ch4_by_valve.png 
+Sat Apr 06 12:21:06 2019  Opening outputs//2-data/2-data.R.log.txt 
+Sat Apr 06 12:21:06 2019  Welcome to 2-data.R 
+Sat Apr 06 12:21:06 2019  Data directory is data//picarro 
+Sat Apr 06 12:21:06 2019  Found 0 files 
+Sat Apr 06 12:21:06 2019  Reading data//picarro/CFADS2283-20180903-171733Z-DataLog_User.dat 
+Sat Apr 06 12:21:06 2019  Reading data//picarro/CFADS2283-20180903-181754Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180903-191813Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180903-201833Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180903-211841Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180904-152216Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180904-162233Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180904-172240Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180904-182303Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180904-192329Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180904-202357Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180904-212411Z-DataLog_User.dat 
+Sat Apr 06 12:21:07 2019  Reading data//picarro/CFADS2283-20180904-222421Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180904-232451Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180905-152712Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180905-162734Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180905-172749Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180905-182816Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180905-192846Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180906-151143Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180906-161158Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180906-171214Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180906-181223Z-DataLog_User.dat 
+Sat Apr 06 12:21:08 2019  Reading data//picarro/CFADS2283-20180906-191237Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180906-201250Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180906-211317Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180906-221338Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180906-231407Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180907-155227Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180907-165254Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180907-175320Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180907-185327Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180907-195357Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180907-205426Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180911-170953Z-DataLog_User.dat 
+Sat Apr 06 12:21:09 2019  Reading data//picarro/CFADS2283-20180911-181020Z-DataLog_User.dat 
+Sat Apr 06 12:21:10 2019  Reading data//picarro/CFADS2283-20180911-191049Z-DataLog_User.dat 
+Sat Apr 06 12:21:10 2019  Reading data//picarro/CFADS2283-20180911-201056Z-DataLog_User.dat 
+Sat Apr 06 12:21:10 2019  Reading data//picarro/CFADS2283-20180911-211105Z-DataLog_User.dat 
+Sat Apr 06 12:21:10 2019  Reading data//picarro/CFADS2283-20180911-221126Z-DataLog_User.dat 
+Sat Apr 06 12:21:10 2019  Reading data//picarro/CFADS2283-20180911-231133Z-DataLog_User.dat 
+Sat Apr 06 12:21:10 2019  Reading data//picarro/CFADS2283-20180912-152026Z-DataLog_User.dat 
+Sat Apr 06 12:21:10 2019  Reading data//picarro/CFADS2283-20180912-162047Z-DataLog_User.dat 
+Sat Apr 06 12:21:10 2019  Reading data//picarro/CFADS2283-20180912-172119Z-DataLog_User.dat 
+Sat Apr 06 12:21:10 2019  Reading data//picarro/CFADS2283-20180912-182135Z-DataLog_User.dat 
+Sat Apr 06 12:21:10 2019  Reading data//picarro/CFADS2283-20180913-151353Z-DataLog_User.dat 
+Sat Apr 06 12:21:11 2019  Reading data//picarro/CFADS2283-20180913-161403Z-DataLog_User.dat 
+Sat Apr 06 12:21:11 2019  Reading data//picarro/CFADS2283-20180913-171420Z-DataLog_User.dat 
+Sat Apr 06 12:21:11 2019  Reading data//picarro/CFADS2283-20180913-181437Z-DataLog_User.dat 
+Sat Apr 06 12:21:11 2019  Reading data//picarro/CFADS2283-20180913-191500Z-DataLog_User.dat 
+Sat Apr 06 12:21:11 2019  Reading data//picarro/CFADS2283-20180913-201508Z-DataLog_User.dat 
+Sat Apr 06 12:21:11 2019  Reading data//picarro/CFADS2283-20180913-211527Z-DataLog_User.dat 
+Sat Apr 06 12:21:11 2019  Writing output file... 
+Sat Apr 06 12:21:11 2019  Saving outputs//rawdata.csv 
+Sat Apr 06 12:21:12 2019  gzipping outputs//rawdata.csv 
+Sat Apr 06 12:21:14 2019  All done with 2-data.R 
+Sat Apr 06 12:21:14 2019  Closing outputs//2-data/2-data.R.log.txt flags = 0 
+Sat Apr 06 12:21:18 2019  Opening outputs//3-summarize/3-summarize.R.log.txt 
+Sat Apr 06 12:21:18 2019  Welcome to 3-summarize.R 
+Sat Apr 06 12:21:18 2019  Reading in raw data... 
+Sat Apr 06 12:21:18 2019  rawdata rows = 22882 cols = 7 
+   filename         ALARM_STATUS        MPVPosition        CH4_dry      
+ Length:22882       Length:22882       Min.   : 0.000   Min.   :-4.714  
+ Class :character   Class :character   1st Qu.: 5.000   1st Qu.: 1.946  
+ Mode  :character   Mode  :character   Median :11.000   Median : 1.978  
+                                       Mean   : 9.991   Mean   : 1.937  
+                                       3rd Qu.:16.000   3rd Qu.: 2.053  
+                                       Max.   :16.000   Max.   :14.317  
+    CO2_dry        h2o_reported      DATETIME                  
+ Min.   : 406.0   Min.   :1.719   Min.   :2018-09-03 17:17:27  
+ 1st Qu.: 468.9   1st Qu.:2.048   1st Qu.:2018-09-04 22:07:55  
+ Median : 509.9   Median :2.114   Median :2018-09-06 22:11:09  
+ Mean   : 547.6   Mean   :2.205   Mean   :2018-09-08 07:00:38  
+ 3rd Qu.: 586.1   3rd Qu.:2.427   3rd Qu.:2018-09-11 22:54:35  
+ Max.   :2015.2   Max.   :2.660   Max.   :2018-09-13 21:55:02  
+Sat Apr 06 12:21:19 2019  First timestamp: 
+[1] "2018-09-03 17:17:27 UTC"
+Sat Apr 06 12:21:19 2019  Last timestamp: 
+[1] "2018-09-13 21:55:02 UTC"
+Sat Apr 06 12:21:19 2019  Assigning sample numbers and computing elapsed time... 
+Sat Apr 06 12:21:19 2019  Removing ambient samples... 
+Sat Apr 06 12:21:20 2019  rawdata_samples rows = 14214 cols = 9 
+Sat Apr 06 12:21:20 2019  Visualizing... 
+Sat Apr 06 12:21:23 2019  Saving outputs//3-summarize/co2_by_valve.png 
+Sat Apr 06 12:21:34 2019  Saving outputs//3-summarize/ch4_by_valve.png 
