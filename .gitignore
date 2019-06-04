@@ -38,3 +38,6 @@ rsconnect/
 
 # OS files
 .DS_Store
+
+# Output files
+outputs/
