@@ -119,15 +119,17 @@ printlog(SEPARATOR)
 printlog("Matching valvemap to Picarro data (slow)...")
 rawdata_matched <- list()
 valvemap$Matches <- NA_real_
+rawdata_samples$Matches <- 0
 for(i in seq_len(nrow(valvemap))) {
   if(!i %% 10) print(i)
   
-  x <- filter(rawdata_samples, 
-              MPVPosition == valvemap$Valve[i],
-              DATETIME >= valvemap$Picarro_start[i],
-              DATETIME <= valvemap$Picarro_stop[i])
-  
+  wch <- which(rawdata_samples$MPVPosition == valvemap$Valve[i] &
+                 rawdata_samples$DATETIME >= valvemap$Picarro_start[i] &
+                 rawdata_samples$DATETIME <= valvemap$Picarro_stop[i])
+  x <- rawdata_samples[wch,]
   valvemap$Matches[i] <- nrow(x)
+  rawdata_samples$Matches[wch] <- rawdata_samples$Matches[wch] + 1
+  
   if(valvemap$Matches[i] > 0) {
     x$valvemap_rownum <- valvemap$rownum[i]
     x$Core <- valvemap$Core[i]
@@ -150,9 +152,14 @@ if(nrow(overlaps)) {
   print(overlaps)
 }
 
-no_matches <- filter(valvemap, Matches == 0) %>% arrange(rownum)
-printlog(nrow(no_matches), "valvemap entries had no matches")
-save_data(no_matches)
+no_data_matches <- filter(valvemap, Matches == 0) %>% arrange(rownum)
+printlog(nrow(no_data_matches), "valvemap entries had no data matches")
+save_data(no_data_matches)
+
+no_valvemap_matches <- filter(rawdata_samples, Matches == 0)
+printlog(nrow(no_valvemap_matches), "data entries had no valvemap matches")
+save_data(no_valvemap_matches)
+
 # ------------ Fluxes -------------------
 # Compute fluxes
 
