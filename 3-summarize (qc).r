@@ -52,8 +52,9 @@ rawdata %>%
 printlog("Removing ambient and bad (valve 2) samples...")
 AMBIENT_VALVE <- c(0, 2, 16)
 rawdata_samples %>%
+  ungroup %>% 
   filter(!MPVPosition %in% AMBIENT_VALVE) %>% 
-  group_by(samplenum) %>%
+  # group_by(samplenum) %>%
   #  filter(max(elapsed_seconds) <= MAX_MEASUREMENT_TIME) %>%
   print_dims("rawdata_samples") ->
   rawdata_samples
@@ -120,10 +121,12 @@ rawdata_matched <- list()
 valvemap$Matches <- NA_real_
 for(i in seq_len(nrow(valvemap))) {
   if(!i %% 10) print(i)
+  
   x <- filter(rawdata_samples, 
               MPVPosition == valvemap$Valve[i],
               DATETIME >= valvemap$Picarro_start[i],
               DATETIME <= valvemap$Picarro_stop[i])
+  
   valvemap$Matches[i] <- nrow(x)
   if(valvemap$Matches[i] > 0) {
     x$valvemap_rownum <- valvemap$rownum[i]
@@ -149,7 +152,7 @@ if(nrow(overlaps)) {
 
 no_matches <- filter(valvemap, Matches == 0) %>% arrange(rownum)
 printlog(nrow(no_matches), "valvemap entries had no matches")
-
+save_data(no_matches)
 # ------------ Fluxes -------------------
 # Compute fluxes
 
