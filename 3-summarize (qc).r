@@ -97,6 +97,7 @@ save_plot("valvemap", height = 4, width = 8)
 
 # The 'wetweight' data records sample wet weights
 read_csv("data/wet_weights.csv", na = "#N/A") %>% 
+  distinct() %>% 
   mutate(Date = mdy(Date)) ->
   wetweights
 
@@ -110,7 +111,7 @@ rawdata_matched <- list()
 valvemap$Matches <- NA_real_
 rawdata_samples$Matches <- 0
 for(i in seq_len(nrow(valvemap))) {
-  if(!i %% 10) print(i)
+  if(!i %% 100) print(i)
   
   wch <- which(rawdata_samples$MPVPosition == valvemap$Valve[i] &
                  rawdata_samples$DATETIME >= valvemap$Picarro_start[i] &
@@ -174,17 +175,79 @@ rawdata_matched %>%
                                           volume_cm3 = unique(V), 
                                           tair_C = 20, 
                                           pressure_kPa = 101)) ->
-  summarydata
+  fluxdata
 
 # Merge with wet weight data (for now) and normalize fluxes by that
 
-summarydata %>% 
+fluxdata %>% 
   mutate(Date = as.Date(DATETIME)) %>% 
   left_join(wetweights, by = c("Core", "Date")) %>% 
   mutate(CO2_flux_norm = CO2_flux / `Soil wet weight (g)`,
          CH4_flux_norm = CH4_flux / `Soil wet weight (g)`) ->
-  summarydata
+  fluxdata
 
-ggplot(summarydata, aes(DATETIME, CO2_flux_norm, color = Core)) + 
+p <- ggplot(fluxdata, aes(DATETIME, CO2_flux_norm, color = Core)) + 
   geom_line() +
   ylab("CO2 flux (µmol/g soil/s")
+print(p)
+save_plot("CO2")
+p <- ggplot(fluxdata, aes(DATETIME, CH4_flux_norm, color = Core)) + 
+  geom_line() +
+  ylab("CH4 flux (nmol/g soil/s")
+print(p)
+save_plot("CO2")
+
+# Some cores have 0 or 1 valid flux values; remove these
+
+fluxdata %>%
+  group_by(Core) %>%
+  mutate(goodvals = sum(!is.na(CO2_flux_norm))) -> 
+  fluxdata
+
+fewdata <- filter(fluxdata, goodvals < 2)
+if(any(nrow(fewdata))) {
+  printlog(length(unique(fewdata$Core)), "cores have fewer than 2 good flux values")
+  save_data(fewdata)
+}
+
+# Cumulative fluxes over time
+
+fluxdata %>% 
+  arrange(Core, DATETIME) %>% 
+  filter(goodvals > 1) %>% 
+  select(Core, DATETIME, CO2_flux_norm, CH4_flux_norm) %>% 
+  group_by(Core) %>% 
+  mutate(inctime_hrs = as.numeric(difftime(DATETIME, first(DATETIME), units = "hours")),
+         inctime_hrs = round(inctime_hrs, 2),
+         deltatime = c(0, as.numeric(difftime(tail(DATETIME, -1), head(DATETIME, -1), units = "sec"))),
+         CO2_flux_interp = approx(deltatime, CO2_flux_norm, xout = deltatime, rule = 2)[['y']],
+         CH4_flux_interp = approx(deltatime, CH4_flux_norm, xout = deltatime, rule = 2)[['y']]) %>%
+  group_by(Core) %>%
+  # Go from µmol/s to mgC
+  mutate(cumCO2_mgC = c(0, cumsum(CO2_flux_interp[-1] / 1e6 * 12 * deltatime[-1])),
+         cumCH4_mgC = c(0, cumsum(CH4_flux_interp[-1]) / 1e6 * 12 * deltatime[-1])) ->
+  fluxdata_cum
+
+p <- ggplot(fluxdata_cum, aes(inctime_hrs, cumCO2_mgC, color = Core)) + 
+  geom_line() +
+  xlab("Incubation time (hrs)") + ylab("Cumulative CO2 flux (mgC)")
+print(p)
+save_plot("CO2_cum", width = 10, height = 4)
+p <- ggplot(fluxdata_cum, aes(inctime_hrs, cumCH4_mgC, color = Core)) + 
+  geom_line() +
+  xlab("Incubation time (hrs)") + ylab("Cumulative CH4 flux (mgC)")
+print(p)
+save_plot("CH4_cum", width = 10, height = 4)
+
+save_data(fluxdata_cum)
+
+fluxdata_cum %>% 
+  group_by(Core) %>% 
+  filter(DATETIME == max(DATETIME)) %>% 
+  select(Core, inctime_hrs, cumCO2_mgC, cumCH4_mgC) ->
+  fluxdata_cum_final
+
+save_data(fluxdata_cum_final)
+
+closelog()
+cat("All done.\n")
