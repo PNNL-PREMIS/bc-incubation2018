@@ -80,18 +80,7 @@ read_csv(VALVEMAP_FILE) %>%
   mutate(rownum = row_number()) %>% 
   filter(!is.na(Core)) %>%
   mutate(Time = gsub("\\.", ":", Time)) %>% 
-  separate(Time, into = c("Start_time", "Stop_time"), sep = "-", remove = FALSE) %>% 
-  # ADITI SENGUPTA YOU ARE KILLING ME HERE
-  # Completely inconsistent recording of times. Arrrgh!
-  # Periods vs. colons, AM/PM versus nothing, ".-", ...
-  mutate(Start_time = gsub("(A|P)M", "", Start_time)) %>% 
-  separate(Start_time, into = c("hr", "min"), sep =":", remove = FALSE, convert = TRUE) %>% 
-  mutate(Start_time = paste(Start_time, if_else(hr < 7 | hr > 11, "PM", "AM"))) %>% 
-  
-  mutate(Stop_time = gsub("(A|P)M", "", Stop_time)) %>% 
-  separate(Stop_time, into = c("hr", "min"), sep =":", remove = FALSE, convert = TRUE) %>% 
-  mutate(Stop_time = paste(Stop_time, if_else(hr < 7 | hr > 11, "PM", "AM"))) %>% 
-  
+  separate(Time, into = c("Start_time", "Stop_time"), sep = "-") %>% 
   mutate(Picarro_start = mdy_hm(paste(Date, Start_time), tz = "America/Los_Angeles"),
          Picarro_stop = mdy_hm(paste(Date, Stop_time), tz = "America/Los_Angeles")) %>% 
   
@@ -186,3 +175,16 @@ rawdata_matched %>%
                                           tair_C = 20, 
                                           pressure_kPa = 101)) ->
   summarydata
+
+# Merge with wet weight data (for now) and normalize fluxes by that
+
+summarydata %>% 
+  mutate(Date = as.Date(DATETIME)) %>% 
+  left_join(wetweights, by = c("Core", "Date")) %>% 
+  mutate(CO2_flux_norm = CO2_flux / `Soil wet weight (g)`,
+         CH4_flux_norm = CH4_flux / `Soil wet weight (g)`) ->
+  summarydata
+
+ggplot(summarydata, aes(DATETIME, CO2_flux_norm, color = Core)) + 
+  geom_line() +
+  ylab("CO2 flux (µmol/g soil/s")
