@@ -41,9 +41,9 @@ plan <- drake_plan(
   valve_key_match_count = pcm$vkmc,
   
   qc1 = qc_match(picarro_clean, picarro_clean_matched, valve_key, picarro_match_count, valve_key_match_count),
-  qc2 = qc_concentrations(picarro_clean_matched, valve_key),
+  qc2 = qc_concentrations(picarro_clean_matched, valve_key)
   
-  ghg_fluxes = compute_ghg_fluxes(picarro_clean_matched, valve_key),
-  qc3 = qc_fluxes(ghg_fluxes, valve_key)
+#  ghg_fluxes = compute_ghg_fluxes(picarro_clean_matched, valve_key),
+#  qc3 = qc_fluxes(ghg_fluxes, valve_key)
 )
 message("Now type make(plan)")

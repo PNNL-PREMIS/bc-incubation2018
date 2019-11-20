@@ -10,7 +10,7 @@ clean_picarro_data <- function(prd) {
 }
 
 # Match the Picarro data (pd) with associated entries in the valve_key file.
-# We do this by finding rows in pd that have the same valve number and who timestamps
+# We do this by finding rows in pd that have the same valve number and whose timestamps
 # fall within the range specified in the valve_key
 match_picarro_data <- function(pd, valve_key) {
   message("Welcome to match_picarro_data")
@@ -22,12 +22,12 @@ match_picarro_data <- function(pd, valve_key) {
   results <- list()
   for(i in seq_len(nrow(valve_key))) {
     # find matches based on timestamp
-    matches <- with(pd, DATETIME >= valve_key$Start_datetime[i] & 
-                      DATETIME <= valve_key$Stop_datetime[i] &
+    matches <- with(pd, DATETIME >= valve_key$TIMESTAMP_START[i] & 
+                      DATETIME <= valve_key$TIMESTAMP_STOP[i] &
                       MPVPosition == valve_key$Valve[i])
     
     # update match count for each record in each dataset
-    pd_match_count[matches] <- pd_match_count[matches] + 1
+    pd_match_count[matches] <- pd_match_count[matches] + 1L
     valve_key_match_count[i] <- sum(matches)
     
     # take those records from the Picarro data, record core, save
@@ -55,7 +55,7 @@ qc_match <- function(p_clean, p_clean_matched, valve_key, p_match_count, valve_k
   }
   
   p <- ggplot(p_clean, aes(DATETIME, MPVPosition, color = p_match_count)) + geom_point()
-  ggsave("outputs/qc_match.pdf", plot = p)
+  ggsave("outputs/qc_match.png", plot = p)
 }
 
 # Plot concentrations
