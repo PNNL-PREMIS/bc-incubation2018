@@ -23,11 +23,9 @@ library(drake)
 
 plan <- drake_plan(
   # Metadata
-  core_key = read_core_key(file_in("data/Core_key.xlsx")),
-  core_dry_weights = read_core_dryweights(file_in("data/Core_weights.xlsx"), sheet = "initial"),
-  core_masses = read_core_masses(file_in("data/Core_weights.xlsx"),
-                                 sheet = "Mass_tracking", core_key, core_dry_weights),
-  valve_key = filter(core_masses, Seq.Program == "CPCRW_SFDec2018.seq"),
+  core_key = read_core_key(file_in("data/Site characteristics for AGU-quick analysis.csv")),
+  core_masses = read_core_wetweights(file_in("data/wet_weights.csv")),
+  valve_key = read_valve_key(file_in("data/gs_valvemap.csv")),
   
   # Picarro data
   # Using the 'trigger' argument below means we only re-read the Picarro raw
