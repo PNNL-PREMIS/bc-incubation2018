@@ -2,6 +2,7 @@
 ## packages ####
 library(readxl)
 library(ggplot2)       # 2.1.0
+theme_set(theme_bw())
 library(readr)         # 1.0.0
 library(lubridate)     # 1.6.0
 library(tidyr)
@@ -19,12 +20,15 @@ library(picarro.data)
 source("1-read_files.R")
 source("3-picarro_data.R")
 
+ELAPSED_SECONDS_MAX <- 40
+
 library(drake)
 
 plan <- drake_plan(
   # Metadata
   core_key = read_core_key(file_in("data/Site characteristics for AGU-quick analysis.csv")),
   core_masses = read_core_wetweights(file_in("data/wet_weights.csv")),
+  core_dryweights = read_core_dryweights(file_in("data/Dry Weight of soils.csv")),
   valve_key = read_valve_key(file_in("data/gs_valvemap.csv")),
   
   # Picarro data
@@ -40,10 +44,12 @@ plan <- drake_plan(
   picarro_match_count = pcm$pmc,
   valve_key_match_count = pcm$vkmc,
   
-  qc1 = qc_match(picarro_clean, picarro_clean_matched, valve_key, picarro_match_count, valve_key_match_count),
-  qc2 = qc_concentrations(picarro_clean_matched, valve_key)
+  pcm_filtered = filter(picarro_clean_matched, Elapsed_seconds <= ELAPSED_SECONDS_MAX),
   
-#  ghg_fluxes = compute_ghg_fluxes(picarro_clean_matched, valve_key),
-#  qc3 = qc_fluxes(ghg_fluxes, valve_key)
+  qc1 = qc_match(picarro_clean, picarro_clean_matched, valve_key, picarro_match_count, valve_key_match_count),
+  qc2 = qc_plot_concentrations(picarro_clean_matched, valve_key, ELAPSED_SECONDS_MAX),
+  
+  ghg_fluxes = compute_ghg_fluxes(pcm_filtered, valve_key, core_dryweights),
+  qc3 = qc_fluxes(ghg_fluxes, valve_key)
 )
 message("Now type make(plan)")

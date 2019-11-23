@@ -3,10 +3,13 @@
 # This is just a thin wrapper around two calls to picarro.data package functions
 clean_picarro_data <- function(prd) {
   message("Welcome to clean_picarro_data")
+  MAX_TIME <- 180
+  message("Filter to Elapsed_seconds < ", MAX_TIME)
   
   prd %>% 
     clean_data(tz = "UTC") %>% 
-    assign_sample_numbers()
+    assign_sample_numbers() %>% 
+    filter(Elapsed_seconds < MAX_TIME)
 }
 
 # Match the Picarro data (pd) with associated entries in the valve_key file.
@@ -59,21 +62,23 @@ qc_match <- function(p_clean, p_clean_matched, valve_key, p_match_count, valve_k
 }
 
 # Plot concentrations
-qc_concentrations <- function(p_clean_matched, valve_key) {
+qc_plot_concentrations <- function(p_clean_matched, valve_key, ELAPSED_SECONDS_MAX) {
   p_co2 <- ggplot(p_clean_matched, aes(Elapsed_seconds, CO2_dry, group = Sample_number)) + 
     geom_line(alpha = 0.5) + 
     facet_wrap(~Core, scales = "free_y") +
+    geom_vline(xintercept = ELAPSED_SECONDS_MAX, color = "red") +
     theme(axis.text.y = element_blank(), strip.text = element_text(size = 6))
   ggsave("outputs/qc_co2.pdf", plot = p_co2, height = 8, width = 8)
   
   p_ch4 <- ggplot(p_clean_matched, aes(Elapsed_seconds, CH4_dry, group = Sample_number)) + 
     geom_line(alpha = 0.5) + 
     facet_wrap(~Core, scales = "free_y") +
+    geom_vline(xintercept = ELAPSED_SECONDS_MAX, color = "red") +
     theme(axis.text.y = element_blank(), strip.text = element_text(size = 6))
   ggsave("outputs/qc_ch4.pdf", plot = p_ch4)
 }
 
-compute_ghg_fluxes <- function(p_clean_matched, valve_key) {
+compute_ghg_fluxes <- function(p_clean_matched, valve_key, core_dryweights) {
   message("Welcome to compute_fluxes")
   
   # The instrument tubing is 455 cm long by ID 1/16"
@@ -98,31 +103,27 @@ compute_ghg_fluxes <- function(p_clean_matched, valve_key) {
                                              volume_cm3 = V_tubing + V_picarro, 
                                              tair_C = Tair) * 1000) %>% 
     # join with valve_key data to get dry weights
-    left_join(valve_key, by = "Core") %>% 
+    left_join(core_dryweights, by = "Core") %>% 
     group_by(Core, Sample_number, DATETIME) %>% 
     summarise(flux_co2_umol_s = flux_co2_umol_s,
               flux_ch4_nmol_s = flux_ch4_nmol_s,
-              flux_co2_umol_g_s = flux_co2_umol_s / mean(DryWt_g),
-              flux_ch4_nmol_g_s = flux_ch4_nmol_s / mean(DryWt_g)) %>% 
+              flux_co2_umol_g_s = flux_co2_umol_s / Dry_weight_g,
+              flux_ch4_nmol_g_s = flux_ch4_nmol_s / Dry_weight_g) %>% 
     ungroup()
 }
 
 qc_fluxes <- function(ghg_fluxes, valve_key) {
-  ghg_fluxes %>% 
-    left_join(valve_key, by = "Core") %>% 
-    mutate(Sand = if_else(grepl("sand", Core_assignment), "Soil_sand", "Soil"),
-           Status = case_when(grepl("_D$", Core_assignment) ~ "Dry",
-                              grepl("_W$", Core_assignment) ~ "Wet",
-                              grepl("_fm$", Core_assignment) ~ "FM")) ->
+  ghg_fluxes %>%
+    separate(Core, into = c("grp","cor"), sep = "-", fill = "right") %>%
+    filter(grepl("^BC", grp)) ->
     gf
-  
-  p_co2 <- ggplot(gf, aes(DATETIME, flux_co2_umol_g_s, group = Core, color = Core_assignment)) + 
+
+  p_co2 <- ggplot(gf, aes(DATETIME, flux_co2_umol_g_s, group = cor, color = cor)) + 
     geom_point() + geom_line() +
-    facet_grid(Sand ~ Status, scale = "free")
+    facet_wrap(~grp, scale = "free_y")
   ggsave("outputs/fluxes_co2.pdf", plot = p_co2, width = 8, height = 6)
-  p_ch4 <- ggplot(gf, aes(DATETIME, flux_ch4_nmol_g_s, group = Core, color = Core_assignment)) + 
+  p_ch4 <- ggplot(gf, aes(DATETIME, flux_ch4_nmol_g_s, group = cor, color = cor)) + 
     geom_point() + geom_line() +
-    facet_grid(Sand ~ Status)
+    facet_wrap(~grp, scale = "free_y")
   ggsave("outputs/fluxes_ch4.pdf", plot = p_ch4, width = 8, height = 6)
-  
 }

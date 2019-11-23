@@ -10,6 +10,11 @@ read_core_wetweights <- function(filename) {
     dplyr::select(Core, Wet_weight_g = `Soil wet weight (g)`)
 }
 
+read_core_dryweights <- function(filename) {
+  readr::read_csv(filename, col_types = "cddd") %>% 
+    dplyr::select(Core, Dry_weight_g = `Soil_drywright(g)`)
+}
+
 read_valve_key <- function(filename) {
   readr::read_csv(filename, col_types = "cccdddc") %>%
     dplyr::select(Core, Date, Time, Run, Headspace, Valve) %>% 
