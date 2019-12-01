@@ -23,3 +23,10 @@ read_valve_key <- function(filename) {
            TIMESTAMP_STOP = mdy_hm(paste(Date, stop), tz = "America/Los_Angeles")) %>% 
     select(-start, -stop)
 }
+
+read_inundation_data <- function(filename) {
+  readr::read_csv(filename, col_types = "ccccccccc") %>% 
+    mutate(Harvested = mdy(Harvested),
+           Inundation1 = mdy_hm(paste(Date_Inund1, Time_Inund1), tz = "America/Los_Angeles")) %>% 
+    select(Core, Treatment, Harvested, Inundation1)
+}

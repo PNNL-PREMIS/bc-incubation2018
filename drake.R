@@ -50,6 +50,9 @@ plan <- drake_plan(
   qc2 = qc_plot_concentrations(picarro_clean_matched, valve_key, ELAPSED_SECONDS_MAX),
   
   ghg_fluxes = compute_ghg_fluxes(pcm_filtered, valve_key, core_dryweights),
-  qc3 = qc_fluxes(ghg_fluxes, valve_key)
+  qc3 = qc_fluxes(ghg_fluxes, valve_key),
+  
+  inundations = read_inundation_data(file_in("data/Core-InundationDate-Time.csv")),
+  flux_summary = do_flux_summary(ghg_fluxes, inundations)
 )
 message("Now type make(plan)")

@@ -127,3 +127,21 @@ qc_fluxes <- function(ghg_fluxes, valve_key) {
     facet_wrap(~grp, scale = "free_y")
   ggsave("outputs/fluxes_ch4.pdf", plot = p_ch4, width = 8, height = 6)
 }
+
+do_flux_summary <- function(ghg_fluxes, inundations) {
+  # Average/median and summary statistics of flux per site temporally or at the end of the experiment
+  browser()
+  ghg_fluxes %>% 
+    separate(Core, into = c("Site", "Site_core"), remove = FALSE, sep = "-") %>% 
+    left_join(inundations, by = "Core") %>% 
+    filter(!is.na(flux_co2_umol_g_s)) ->
+    ghgf
+  
+  ghgf %>% 
+    group_by(Site, Treatment) %>% 
+    summarise(flux_co2_umol_g_s = mean(flux_co2_umol_g_s)) ->
+    ghgf_means
+  
+  p <- ggplot(ghgf, aes(Site, flux_co2_umol_g_s, color = Treatment)) +
+    geom_point() + geom_boxplot()
+}
