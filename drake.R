@@ -53,6 +53,7 @@ plan <- drake_plan(
   qc3 = qc_fluxes(ghg_fluxes, valve_key),
   
   inundations = read_inundation_data(file_in("data/Core-InundationDate-Time.csv")),
-  flux_summary = do_flux_summary(ghg_fluxes, inundations)
+  site_categories = read_csv(file_in("data/site_categorization.csv"), col_types = "ccc"),
+  flux_summary = do_flux_summary(ghg_fluxes, inundations, site_categories)
 )
 message("Now type make(plan)")

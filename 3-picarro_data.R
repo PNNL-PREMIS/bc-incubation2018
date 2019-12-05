@@ -128,20 +128,50 @@ qc_fluxes <- function(ghg_fluxes, valve_key) {
   ggsave("outputs/fluxes_ch4.pdf", plot = p_ch4, width = 8, height = 6)
 }
 
-do_flux_summary <- function(ghg_fluxes, inundations) {
+do_flux_summary <- function(ghg_fluxes, inundations, site_categories) {
   # Average/median and summary statistics of flux per site temporally or at the end of the experiment
-  browser()
   ghg_fluxes %>% 
     separate(Core, into = c("Site", "Site_core"), remove = FALSE, sep = "-") %>% 
     left_join(inundations, by = "Core") %>% 
+    left_join(site_categories, by = "Site") %>% 
     filter(!is.na(flux_co2_umol_g_s)) ->
     ghgf
   
   ghgf %>% 
-    group_by(Site, Treatment) %>% 
-    summarise(flux_co2_umol_g_s = mean(flux_co2_umol_g_s)) ->
+    filter(!is.na(Inundation1)) %>% 
+    mutate(Inundation = 1, Inundation_dttm = Inundation1) ->
+    ghgf_i1
+  ghgf %>% 
+    filter(!is.na(Inundation2)) %>% 
+    mutate(Inundation = 2, Inundation_dttm = Inundation2) ->
+    ghgf_i2
+  ghgf %>% 
+    filter(!is.na(Inundation3)) %>% 
+    mutate(Inundation = 3, Inundation_dttm = Inundation3) %>% 
+    bind_rows(ghgf_i1, ghgf_i2) %>% 
+    mutate(Inundation = as.factor(Inundation)) %>% 
+    select(-Inundation1, -Inundation2, -Inundation3) ->
+    ghgf_inundations
+  
+  p <- ggplot(ghgf_inundations, aes(DATETIME, flux_co2_umol_g_s)) + 
+    geom_point() + 
+    geom_vline(aes(xintercept = Inundation_dttm, color = Inundation)) + 
+    geom_vline(aes(xintercept = Inundation_dttm + 60 * 60 * 24, color = Inundation), linetype = 2) +
+    facet_wrap(~Core, scales = "free_y")
+  ggsave("outputs/inundations_qc.png", plot = p)
+  
+  ghgf %>% 
+    group_by(Site, Treatment, Core) %>% 
+    summarise(co2_mean = mean(flux_co2_umol_g_s),
+              co2_median = median(flux_co2_umol_g_s)) %>% 
+    tidyr::gather(statistic, value, co2_mean, co2_median) ->
     ghgf_means
   
-  p <- ggplot(ghgf, aes(Site, flux_co2_umol_g_s, color = Treatment)) +
-    geom_point() + geom_boxplot()
+  p <- ggplot(ghgf_means, aes(Treatment, value)) + 
+    geom_point() + 
+    facet_grid(statistic ~ Site) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  ggsave("outputs/inundations_meanmedian.png", plot = p)
+  
+  browser()
 }

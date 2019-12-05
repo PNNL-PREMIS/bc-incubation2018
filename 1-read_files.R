@@ -27,6 +27,9 @@ read_valve_key <- function(filename) {
 read_inundation_data <- function(filename) {
   readr::read_csv(filename, col_types = "ccccccccc") %>% 
     mutate(Harvested = mdy(Harvested),
-           Inundation1 = mdy_hm(paste(Date_Inund1, Time_Inund1), tz = "America/Los_Angeles")) %>% 
-    select(Core, Treatment, Harvested, Inundation1)
+           Inundation1 = mdy_hm(paste(Date_Inund1, Time_Inund1), tz = "America/Los_Angeles"),
+           Inundation2 = mdy_hm(paste(Date_Inund2, Time_Inund2), tz = "America/Los_Angeles"),
+           Inundation3 = mdy_hm(paste(Date_Inund3, Time_Inund3), tz = "America/Los_Angeles"),
+           Treatment = factor(Treatment, levels = c("ControlCore", "Pre-inundationControl", "InundatedCore"))) %>% 
+    select(Core, Treatment, Harvested, Inundation1, Inundation2, Inundation3)
 }
