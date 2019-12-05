@@ -117,7 +117,7 @@ qc_fluxes <- function(ghg_fluxes, valve_key) {
     separate(Core, into = c("grp","cor"), sep = "-", fill = "right") %>%
     filter(grepl("^BC", grp)) ->
     gf
-
+  
   p_co2 <- ggplot(gf, aes(DATETIME, flux_co2_umol_g_s, group = cor, color = cor)) + 
     geom_point() + geom_line() +
     facet_wrap(~grp, scale = "free_y")
@@ -161,15 +161,17 @@ do_flux_summary <- function(ghg_fluxes, inundations, site_categories) {
   ggsave("outputs/inundations_qc.png", plot = p)
   
   ghgf %>% 
-    group_by(Site, Treatment, Core) %>% 
+    group_by(Proximity_to_creek, Site, Treatment, Core) %>% 
     summarise(co2_mean = mean(flux_co2_umol_g_s),
               co2_median = median(flux_co2_umol_g_s)) %>% 
     tidyr::gather(statistic, value, co2_mean, co2_median) ->
     ghgf_means
   
-  p <- ggplot(ghgf_means, aes(Treatment, value)) + 
+  p <- ggplot(filter(ghgf_means, Treatment != "Pre-inundationControl"),
+              aes(Treatment, value)) + 
+    geom_boxplot(color = "lightgrey") +
     geom_point() + 
-    facet_grid(statistic ~ Site) +
+    facet_grid(statistic ~ Proximity_to_creek + Site) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
   ggsave("outputs/inundations_meanmedian.png", plot = p)
   

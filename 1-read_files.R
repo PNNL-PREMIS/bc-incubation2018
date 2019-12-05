@@ -33,3 +33,8 @@ read_inundation_data <- function(filename) {
            Treatment = factor(Treatment, levels = c("ControlCore", "Pre-inundationControl", "InundatedCore"))) %>% 
     select(Core, Treatment, Harvested, Inundation1, Inundation2, Inundation3)
 }
+
+read_site_categories <- function(filename) {
+readr::read_csv(filename, col_types = "ccc") %>% 
+    mutate(Proximity_to_creek = factor(Proximity_to_creek, levels = c("Close", "Medium", "Far", "Very far")))
+}
