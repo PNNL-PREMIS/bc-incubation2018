@@ -163,17 +163,35 @@ do_flux_summary <- function(ghg_fluxes, inundations, site_categories) {
   ghgf %>% 
     group_by(Proximity_to_creek, Site, Treatment, Core) %>% 
     summarise(co2_mean = mean(flux_co2_umol_g_s),
-              co2_median = median(flux_co2_umol_g_s)) %>% 
-    tidyr::gather(statistic, value, co2_mean, co2_median) ->
+              co2_median = median(flux_co2_umol_g_s),
+              ch4_mean = mean(flux_ch4_nmol_g_s),
+              ch4_median = median(flux_ch4_nmol_g_s)) %>% 
+    tidyr::gather(statistic, value, co2_mean, co2_median, ch4_mean, ch4_median) ->
     ghgf_means
   
-  p <- ggplot(filter(ghgf_means, Treatment != "Pre-inundationControl"),
+  p <- ggplot(filter(ghgf_means, 
+                     statistic %in% c("co2_mean", "co2_median"),
+                     Treatment != "Pre-inundationControl"),
               aes(Treatment, value)) + 
     geom_boxplot(color = "lightgrey") +
     geom_point() + 
+    ylab(expression(CO[2]~(µmol~g^{-1}~s^{-1}))) +
     facet_grid(statistic ~ Proximity_to_creek + Site) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
-  ggsave("outputs/inundations_meanmedian.png", plot = p)
+  ggsave("outputs/inundations_meanmedian_co2.png", plot = p)
   
-  browser()
+  p <- ggplot(filter(ghgf_means, 
+                     Treatment != "Pre-inundationControl",
+                     statistic %in% c("ch4_mean", "ch4_median")),
+              aes(Treatment, value)) + 
+    geom_boxplot(color = "lightgrey") +
+    geom_point() + 
+    ylab(expression(CH[4]~(nmol~g^{-1}~s^{-1}))) +
+    facet_grid(statistic ~ Proximity_to_creek + Site) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  ggsave("outputs/inundations_meanmedian_ch4.png", plot = p)
+  
+  write_csv(ghgf_means, "outputs/ghgf_means.csv")
+  
+#  browser()
 }
