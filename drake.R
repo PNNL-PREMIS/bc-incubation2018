@@ -19,6 +19,7 @@ library(picarro.data)
 
 source("1-read_files.R")
 source("3-picarro_data.R")
+source("4-figures.R")
 
 ELAPSED_SECONDS_MAX <- 40
 
@@ -54,6 +55,9 @@ plan <- drake_plan(
   
   inundations = read_inundation_data(file_in("data/Core-InundationDate-Time.csv")),
   site_categories = read_site_categories(file_in("data/site_categorization.csv")),
-  flux_summary = do_flux_summary(ghg_fluxes, inundations, site_categories)
+  flux_summary = do_flux_summary(ghg_fluxes, inundations, site_categories),
+  
+  fig2 = aditi_figure2(flux_summary)
 )
+
 message("Now type make(plan)")

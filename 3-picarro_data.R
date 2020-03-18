@@ -193,5 +193,5 @@ do_flux_summary <- function(ghg_fluxes, inundations, site_categories) {
   
   write_csv(ghgf_means, "outputs/ghgf_means.csv")
   
-#  browser()
+  #  browser()
 }
