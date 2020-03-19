@@ -1,6 +1,8 @@
 # 4-figures.R
 
-
+aditi_figure1 <- function() {
+  
+}
 
 aditi_figure2 <- function(flux_summary) {
   
@@ -18,10 +20,9 @@ aditi_figure2 <- function(flux_summary) {
     facet_grid(statistic ~ Site, scales = "free_y", labeller = label_parsed) + 
     geom_point() +
     theme(strip.background = element_blank(),
-          strip.text.y = element_text(angle = 00)) ->
-    p
+          strip.text.y = element_text(angle = 00)) %>% 
+    print()
   
-  print(p)
   ggsave("outputs/aditi-fig2.png")
   
 }
