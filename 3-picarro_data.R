@@ -150,8 +150,11 @@ do_flux_summary <- function(ghg_fluxes, inundations, site_categories) {
     mutate(Inundation = 3, Inundation_dttm = Inundation3) %>% 
     bind_rows(ghgf_i1, ghgf_i2) %>% 
     mutate(Inundation = as.factor(Inundation)) %>% 
-    select(-Inundation1, -Inundation2, -Inundation3) ->
+    select(-Inundation1, -Inundation2, -Inundation3) %>% 
+    mutate(Site = factor(Site, levels = c("BC2", "BC3", "BC4", "BC12", "BC13", "BC14", "BC15"))) ->
     ghgf_inundations
+  
+  browser()
   
   p <- ggplot(ghgf_inundations, aes(DATETIME, flux_co2_umol_g_s)) + 
     geom_point() + 

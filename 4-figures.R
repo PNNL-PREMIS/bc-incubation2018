@@ -8,7 +8,6 @@ aditi_figure2 <- function(flux_summary) {
   
   flux_summary %>% 
     ungroup() %>%
-    mutate(Site = factor(Site, levels = c("BC2", "BC3", "BC4", "BC12", "BC13", "BC14", "BC15"))) %>% 
     filter(Treatment %in% c("ControlCore", "InundatedCore")) %>% 
     mutate(Treatment = if_else(Treatment == "ControlCore", "CC", "IC")) %>% 
     filter(statistic %in% c("co2_mean", "ch4_mean")) %>% 
