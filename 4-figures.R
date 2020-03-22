@@ -4,9 +4,9 @@ aditi_figure1 <- function() {
   
 }
 
-aditi_figure2 <- function(flux_summary) {
+aditi_figure2 <- function(ghgf_inundations) {
   
-  flux_summary %>% 
+  ghgf_inundations %>% 
     ungroup() %>%
     filter(Treatment %in% c("ControlCore", "InundatedCore")) %>% 
     mutate(Treatment = if_else(Treatment == "ControlCore", "CC", "IC")) %>% 

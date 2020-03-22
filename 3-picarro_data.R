@@ -128,40 +128,75 @@ qc_fluxes <- function(ghg_fluxes, valve_key) {
   ggsave("outputs/fluxes_ch4.pdf", plot = p_ch4, width = 8, height = 6)
 }
 
-do_flux_summary <- function(ghg_fluxes, inundations, site_categories) {
-  # Average/median and summary statistics of flux per site temporally or at the end of the experiment
+
+merge_site_inundations <- function(ghg_fluxes, inundations, site_categories) {
   ghg_fluxes %>% 
     separate(Core, into = c("Site", "Site_core"), remove = FALSE, sep = "-") %>% 
     left_join(inundations, by = "Core") %>% 
     left_join(site_categories, by = "Site") %>% 
-    filter(!is.na(flux_co2_umol_g_s)) ->
-    ghgf
+    filter(!is.na(flux_co2_umol_g_s))
+}
+
+calculate_control_inundations <- function(ghg_si) {
   
-  ghgf %>% 
+  ghg_si %>% 
     filter(!is.na(Inundation1)) %>% 
     mutate(Inundation = 1, Inundation_dttm = Inundation1) ->
     ghgf_i1
-  ghgf %>% 
+  ghg_si %>% 
     filter(!is.na(Inundation2)) %>% 
     mutate(Inundation = 2, Inundation_dttm = Inundation2) ->
     ghgf_i2
-  ghgf %>% 
+  ghg_si %>% 
     filter(!is.na(Inundation3)) %>% 
     mutate(Inundation = 3, Inundation_dttm = Inundation3) %>% 
     bind_rows(ghgf_i1, ghgf_i2) %>% 
     mutate(Inundation = as.factor(Inundation)) %>% 
-    select(-Inundation1, -Inundation2, -Inundation3) %>% 
-    mutate(Site = factor(Site, levels = c("BC2", "BC3", "BC4", "BC12", "BC13", "BC14", "BC15"))) ->
+    select(-Inundation1, -Inundation2, -Inundation3) ->
     ghgf_inundations
+  
+  # At this point we have all the 'InundatedCore' treatments, one row per measurement and inundation event
+  # Filter for observations within 24 hours of inundation event
+  ghgf_inundations %>% 
+    mutate(inundation_hrs = difftime(Inundation_dttm, DATETIME, units = "hours")) %>% 
+    filter(inundation_hrs >= 0, inundation_hrs <= 24) ->
+    inundation_fluxes
+  
+  # The control cores don't have inundation events
+  # For each site and inundation date, pull out corresponding control observations and assign them to that inundation
+  controls <- filter(ghg_si, Treatment == "ControlCore")
+  ydays <- unique(yday(controls$DATETIME))
+  control_matches <- list()
+  for(yd in ydays) {
+    for(i in unique(inundation_fluxes$Inundation)) {
+      d <- filter(inundation_fluxes, yday(DATETIME) == yd, Inundation == i)
+      controls %>% 
+        filter(yday(DATETIME) == yd, Site %in% unique(d$Site)) %>% 
+        mutate(Inundation = i) ->
+        control_matches[[paste(yd, i)]]
+    }  
+  }
+  
+  # Pull everything together and make Aditi's figure 1
+  bind_rows(control_matches) %>% 
+    bind_rows(inundation_fluxes) %>% 
+    mutate(Site = factor(Site, levels = c("BC2", "BC3", "BC4", "BC12", "BC13", "BC14", "BC15"))) -> 
+    inundation_fluxes
+    
+  p <- ggplot(inundation_fluxes, aes(Inundation, flux_co2_umol_g_s, color = Treatment)) + 
+    geom_boxplot() + 
+    facet_wrap(~Site, scales = "free_y")
+  ggsave("outputs/aditi-fig1.png", plot = p, width = 8, height = 6)
+  
+  # This isn't working...it looks like control data getting duplicated across sites?
   
   browser()
   
-  p <- ggplot(ghgf_inundations, aes(DATETIME, flux_co2_umol_g_s)) + 
-    geom_point() + 
-    geom_vline(aes(xintercept = Inundation_dttm, color = Inundation)) + 
-    geom_vline(aes(xintercept = Inundation_dttm + 60 * 60 * 24, color = Inundation), linetype = 2) +
-    facet_wrap(~Core, scales = "free_y")
-  ggsave("outputs/inundations_qc.png", plot = p)
+  inundation_fluxes
+}
+
+
+do_flux_summary <- function(ghgf) {
   
   ghgf %>% 
     group_by(Proximity_to_creek, Site, Treatment, Core) %>% 

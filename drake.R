@@ -55,9 +55,14 @@ plan <- drake_plan(
   
   inundations = read_inundation_data(file_in("data/Core-InundationDate-Time.csv")),
   site_categories = read_site_categories(file_in("data/site_categorization.csv")),
-  flux_summary = do_flux_summary(ghg_fluxes, inundations, site_categories),
   
-  fig2 = aditi_figure2(flux_summary)
+  ghg_si = merge_site_inundations(ghg_fluxes, inundations, site_categories),
+  
+  inundation_fluxes = calculate_control_inundations(ghg_si),
+  
+ # flux_summary = do_flux_summary(inundation_fluxes),
+  
+  fig2 = aditi_figure2(inundation_fluxes)
 )
 
 message("Now type make(plan)")
