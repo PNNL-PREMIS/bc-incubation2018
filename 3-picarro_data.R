@@ -158,8 +158,7 @@ calculate_control_inundations <- function(ghg_si) {
   # At this point we have all the 'InundatedCore' treatments, one row per measurement and inundation event
   # Filter for observations within 24 hours of inundation event
   ghgf_inundations %>% 
-    mutate(inundation_hrs = difftime(Inundation_dttm, DATETIME, units = "hours")) %>% 
-    filter(inundation_hrs >= 0, inundation_hrs <= 24) ->
+    mutate(inundation_hrs = difftime(Inundation_dttm, DATETIME, units = "hours")) ->
     inundation_fluxes
   
   # The control cores don't have inundation events
@@ -177,13 +176,24 @@ calculate_control_inundations <- function(ghg_si) {
     }  
   }
   
-  # Pull everything together and make Aditi's figure 1
+  # Pull everything together
   bind_rows(control_matches) %>% 
     bind_rows(inundation_fluxes) %>% 
     mutate(Site = factor(Site, levels = c("BC2", "BC3", "BC4", "BC12", "BC13", "BC14", "BC15"))) -> 
     inundation_fluxes
-    
-  p <- ggplot(inundation_fluxes, aes(Inundation, flux_co2_umol_g_s, color = Treatment)) + 
+  
+  p <- ggplot(inundation_fluxes, aes(DATETIME, flux_co2_umol_g_s, alpha=Treatment)) + 
+    geom_point() + facet_wrap(~Site, scales = "free") + 
+    geom_vline(aes(xintercept = Inundation_dttm, color = Inundation))
+  print(p)
+  ggsave("outputs/inundation-check.png", plot = p, width = 8, height = 6)
+  
+  browser()
+  
+  # For Aditi's figure 1, filter to just observations within 24 hours of the inundation timestamp
+  inundation_fluxes %>% 
+    filter(inundation_hrs >= 0, inundation_hrs <= 24) %>% 
+    ggplot(aes(Inundation, flux_co2_umol_g_s, color = Treatment)) + 
     geom_boxplot() + 
     facet_wrap(~Site, scales = "free_y")
   ggsave("outputs/aditi-fig1.png", plot = p, width = 8, height = 6)
