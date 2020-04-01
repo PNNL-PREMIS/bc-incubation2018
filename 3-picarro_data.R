@@ -151,42 +151,51 @@ calculate_control_inundations <- function(ghg_si) {
     filter(!is.na(Inundation3)) %>% 
     mutate(Inundation = 3, Inundation_dttm = Inundation3) %>% 
     bind_rows(ghgf_i1, ghgf_i2) %>% 
-    mutate(Inundation = as.factor(Inundation)) %>% 
+    mutate(Inundation = as.factor(Inundation),
+           inundation_hrs = as.numeric(difftime(Inundation_dttm, DATETIME, units = "hours"))) %>% 
     select(-Inundation1, -Inundation2, -Inundation3) ->
     ghgf_inundations
   
-  # At this point we have all the 'InundatedCore' treatments, one row per measurement and inundation event
-  # Filter for observations within 24 hours of inundation event
-  ghgf_inundations %>% 
-    mutate(inundation_hrs = difftime(Inundation_dttm, DATETIME, units = "hours")) ->
-    inundation_fluxes
+  # At this point we have all the 'InundatedCore' treatments, 
+  # one row per measurement and inundation event
   
   # The control cores don't have inundation events
-  # For each site and inundation date, pull out corresponding control observations and assign them to that inundation
+  # For each site and inundation date, pull out corresponding control 
+  # observations and assign them to that inundation
   controls <- filter(ghg_si, Treatment == "ControlCore")
   ydays <- unique(yday(controls$DATETIME))
   control_matches <- list()
   for(yd in ydays) {
-    for(i in unique(inundation_fluxes$Inundation)) {
-      d <- filter(inundation_fluxes, yday(DATETIME) == yd, Inundation == i)
+    for(i in unique(ghgf_inundations$Inundation)) {
+      d <- filter(ghgf_inundations, yday(DATETIME) == yd, Inundation == i)
       controls %>% 
         filter(yday(DATETIME) == yd, Site %in% unique(d$Site)) %>% 
-        mutate(Inundation = i) ->
+        mutate(Inundation = i, inundation_hrs = 0) ->
         control_matches[[paste(yd, i)]]
     }  
   }
   
+  control_matches <- bind_rows(control_matches)
+  browser()
+  
   # Pull everything together
-  bind_rows(control_matches) %>% 
-    bind_rows(inundation_fluxes) %>% 
+  ghgf_inundations %>% 
+    bind_rows(control_matches) %>% 
     mutate(Site = factor(Site, levels = c("BC2", "BC3", "BC4", "BC12", "BC13", "BC14", "BC15"))) -> 
     inundation_fluxes
   
-  p <- ggplot(inundation_fluxes, aes(DATETIME, flux_co2_umol_g_s, alpha=Treatment)) + 
-    geom_point() + facet_wrap(~Site, scales = "free") + 
-    geom_vline(aes(xintercept = Inundation_dttm, color = Inundation))
+  p <- ggplot(filter(inundation_fluxes, flux_co2_umol_g_s < 0.003), 
+              aes(DATETIME, flux_co2_umol_g_s, color = Treatment, group = Core)) + 
+    geom_line() + facet_grid(Site~., scales = "free_y") + 
+    geom_vline(aes(xintercept = Inundation_dttm), linetype = 2)
   print(p)
-  ggsave("outputs/inundation-check.png", plot = p, width = 8, height = 6)
+  ggsave("outputs/inundation-check-co2.png", plot = p, width = 8, height = 6)
+  p <- ggplot(inundation_fluxes, 
+              aes(DATETIME, flux_ch4_nmol_g_s, color = Treatment, group = Core)) + 
+    geom_line() + facet_grid(Site~., scales = "free_y") + 
+    geom_vline(aes(xintercept = Inundation_dttm), linetype = 2)
+  print(p)
+  ggsave("outputs/inundation-check-ch4.png", plot = p, width = 8, height = 6)
   
   browser()
   
