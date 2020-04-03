@@ -157,11 +157,11 @@ calculate_control_inundations <- function(ghg_si) {
   
   # At this point we have all the 'InundatedCore' treatments, 
   # one row per measurement and inundation event
-  browser()
-  
+
   # The control cores don't have inundation events
   # For each site and inundation date, pull out corresponding control 
   # observations and assign them to that inundation
+  # It's guaranteed that the inundation for a site takes place on the same day for all cores
   controls <- filter(ghg_si, Treatment == "ControlCore")
   sites <- unique(controls$Site)
   control_matches <- list()
@@ -186,13 +186,13 @@ calculate_control_inundations <- function(ghg_si) {
   p <- ggplot(filter(inundation_fluxes, flux_co2_umol_g_s < 0.003), 
               aes(DATETIME, flux_co2_umol_g_s, color = Treatment, group = Core)) + 
     geom_line() + facet_grid(Site~., scales = "free_y") + 
-    geom_vline(aes(xintercept = Inundation_dttm), linetype = 2)
+    geom_vline(aes(xintercept = Inundation_dttm), linetype = 2, na.rm = TRUE)
   print(p)
   ggsave("outputs/inundation-check-co2.png", plot = p, width = 8, height = 6)
   p <- ggplot(inundation_fluxes, 
               aes(DATETIME, flux_ch4_nmol_g_s, color = Treatment, group = Core)) + 
     geom_line() + facet_grid(Site~., scales = "free_y") + 
-    geom_vline(aes(xintercept = Inundation_dttm), linetype = 2)
+    geom_vline(aes(xintercept = Inundation_dttm), linetype = 2, na.rm = TRUE)
   print(p)
   ggsave("outputs/inundation-check-ch4.png", plot = p, width = 8, height = 6)
   

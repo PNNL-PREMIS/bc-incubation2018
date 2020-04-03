@@ -60,9 +60,10 @@ plan <- drake_plan(
   
   inundation_fluxes = calculate_control_inundations(ghg_si),
   
- # flux_summary = do_flux_summary(inundation_fluxes),
+  # flux_summary = do_flux_summary(inundation_fluxes),
   
-  fig2 = aditi_figure2(inundation_fluxes)
+  fig2 = aditi_figure2(inundation_fluxes, ghg_si),
+  fig3 = aditi_figure3(inundation_fluxes)
 )
 
 message("Now type make(plan)")
