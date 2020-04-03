@@ -151,32 +151,31 @@ calculate_control_inundations <- function(ghg_si) {
     filter(!is.na(Inundation3)) %>% 
     mutate(Inundation = 3, Inundation_dttm = Inundation3) %>% 
     bind_rows(ghgf_i1, ghgf_i2) %>% 
-    mutate(Inundation = as.factor(Inundation),
-           inundation_hrs = as.numeric(difftime(Inundation_dttm, DATETIME, units = "hours"))) %>% 
+    mutate(inundation_hrs = as.numeric(difftime(Inundation_dttm, DATETIME, units = "hours"))) %>% 
     select(-Inundation1, -Inundation2, -Inundation3) ->
     ghgf_inundations
   
   # At this point we have all the 'InundatedCore' treatments, 
   # one row per measurement and inundation event
+  browser()
   
   # The control cores don't have inundation events
   # For each site and inundation date, pull out corresponding control 
   # observations and assign them to that inundation
   controls <- filter(ghg_si, Treatment == "ControlCore")
-  ydays <- unique(yday(controls$DATETIME))
+  sites <- unique(controls$Site)
   control_matches <- list()
-  for(yd in ydays) {
+  for(st in sites) {
     for(i in unique(ghgf_inundations$Inundation)) {
-      d <- filter(ghgf_inundations, yday(DATETIME) == yd, Inundation == i)
+      d <- filter(ghgf_inundations, Site == st, Inundation == i)
       controls %>% 
-        filter(yday(DATETIME) == yd, Site %in% unique(d$Site)) %>% 
+        filter(yday(DATETIME) %in% unique(yday(d$Inundation_dttm)), Site == st) %>% 
         mutate(Inundation = i, inundation_hrs = 0) ->
-        control_matches[[paste(yd, i)]]
+        control_matches[[paste(st, i)]]
     }  
   }
   
   control_matches <- bind_rows(control_matches)
-  browser()
   
   # Pull everything together
   ghgf_inundations %>% 
@@ -197,19 +196,14 @@ calculate_control_inundations <- function(ghg_si) {
   print(p)
   ggsave("outputs/inundation-check-ch4.png", plot = p, width = 8, height = 6)
   
-  browser()
-  
   # For Aditi's figure 1, filter to just observations within 24 hours of the inundation timestamp
   inundation_fluxes %>% 
     filter(inundation_hrs >= 0, inundation_hrs <= 24) %>% 
-    ggplot(aes(Inundation, flux_co2_umol_g_s, color = Treatment)) + 
+    ggplot(aes(as.factor(Inundation), flux_co2_umol_g_s, color = Treatment)) + 
     geom_boxplot() + 
-    facet_wrap(~Site, scales = "free_y")
+    facet_wrap(~Site, scales = "free_y") ->
+    p
   ggsave("outputs/aditi-fig1.png", plot = p, width = 8, height = 6)
-  
-  # This isn't working...it looks like control data getting duplicated across sites?
-  
-  browser()
   
   inundation_fluxes
 }
