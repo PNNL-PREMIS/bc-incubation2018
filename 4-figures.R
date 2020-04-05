@@ -51,12 +51,23 @@ aditi_figure3 <- function(ghgf_inundations) {
     select(Site, Core, Inundation, Gas, value) ->
     flux_change
   
-  ggplot(flux_change, aes(x = value, color = Site)) + 
+  ggplot(flux_change, aes(x = value, color = Inundation)) + 
     geom_density() + 
     geom_vline(xintercept = 0, linetype = 2) + 
-    facet_wrap(~Gas+Inundation, scales = "free") ->
+    facet_wrap(~Gas, scales = "free") ->
     p
   print(p)
   ggsave("outputs/aditi-fig3.png", plot = p)
+  
+  # Summary
+  flux_change %>% 
+    group_by(Inundation, Gas) %>% 
+    summarise(value_sd = sd(value), change = mean(value)) %>% 
+    ggplot(aes(Inundation, change, ymin = change - value_sd, ymax = change + value_sd)) + 
+    geom_point() + geom_errorbar() +
+    geom_hline(yintercept = 0, linetype = 2) +
+    facet_wrap(~Gas, scales = "free") ->
+    p
+  print(p)
+  ggsave("outputs/aditi-fig3-smry.png", plot = p, width = 6, height = 4)
 }
-
