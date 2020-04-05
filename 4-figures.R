@@ -53,8 +53,8 @@ aditi_figure3 <- function(ghgf_inundations) {
   
   ggplot(flux_change, aes(x = value, color = Site)) + 
     geom_density() + 
-    geom_vline(xintercept = 0) + 
-    facet_wrap(~Gas, scales = "free") ->
+    geom_vline(xintercept = 0, linetype = 2) + 
+    facet_wrap(~Gas+Inundation, scales = "free") ->
     p
   print(p)
   ggsave("outputs/aditi-fig3.png", plot = p)
