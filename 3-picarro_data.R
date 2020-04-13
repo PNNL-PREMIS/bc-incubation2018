@@ -3,10 +3,12 @@
 # This is just a thin wrapper around two calls to picarro.data package functions
 clean_picarro_data <- function(prd) {
   message("Welcome to clean_picarro_data")
+  
   MAX_TIME <- 180
-  message("Filter to Elapsed_seconds < ", MAX_TIME)
+  message("Filter to Elapsed_seconds < ", MAX_TIME, " and remove duplicates")
   
   prd %>% 
+    distinct(DATE, TIME, MPVPosition, .keep_all = TRUE) %>% 
     clean_data(tz = "UTC") %>% 
     assign_sample_numbers() %>% 
     filter(Elapsed_seconds < MAX_TIME)
@@ -203,8 +205,19 @@ calculate_control_inundations <- function(ghg_si) {
     geom_boxplot() + 
     facet_wrap(~Site, scales = "free_y") ->
     p
-  ggsave("outputs/aditi-fig1.png", plot = p, width = 8, height = 6)
+  ggsave("outputs/aditi-fig1-co2.png", plot = p, width = 8, height = 6)
+  inundation_fluxes %>% 
+    filter(inundation_hrs >= 0, inundation_hrs <= 24) %>% 
+    ggplot(aes(as.factor(Inundation), flux_ch4_nmol_g_s, color = Treatment)) + 
+    geom_boxplot() + 
+    facet_wrap(~Site, scales = "free_y") ->
+    p
   
+  inundation_fluxes %>% 
+    filter(inundation_hrs >= 0, inundation_hrs <= 24) %>% 
+    write_csv("outputs/aditi-fig1-data.csv")
+  
+  ggsave("outputs/aditi-fig1-ch4.png", plot = p, width = 8, height = 6)
   inundation_fluxes
 }
 

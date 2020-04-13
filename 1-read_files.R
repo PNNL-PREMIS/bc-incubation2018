@@ -35,6 +35,6 @@ read_inundation_data <- function(filename) {
 }
 
 read_site_categories <- function(filename) {
-readr::read_csv(filename, col_types = "ccc") %>% 
+  readr::read_csv(filename, col_types = "ccc") %>% 
     mutate(Proximity_to_creek = factor(Proximity_to_creek, levels = c("Close", "Medium", "Far", "Very far")))
 }
